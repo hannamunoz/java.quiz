@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Quiz Challenge</title>
+    <!-- Link to css code -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Link to bootstrap code -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- High Score Button and Timer -->
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h5 class="text-center">High Scores</h5>
+        </div>
+        <div class="col-md-6">   
+            <h5 class="text-center">Timer Placeholder</h5>
+        </div>
+    </div>
+    </div>
+    <!-- Card for quiz content -->
+    <div id="quiz-intro" class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="card-title">Coding Quiz Challenge</h1>
+                    <p class="card-text"> To begin, push the start button below. When you select the correct answer, you
+                        will move onto the next question.
+                        When you select the wrong answer, 15 seconds will be removed from the timer. Goodluck!
+                    </p>
+                    <button onclick="startQuiz()" class="button btn-primary">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quiz Questions -->
+    <div id="quiz-questions" class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 id="question" class="card-title"></h4>
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button onclick="checkQuestion('1')" id="answer1" class="btn btn-primary" type="button"></button>
+                        <button onclick="checkQuestion('2')" id="answer2" class="btn btn-primary" type="button"></button>
+                        <button onclick="checkQuestion('3')" id="answer3" class="btn btn-primary" type="button"></button>
+                        <button onclick="checkQuestion('4')" id="answer4" class="btn btn-primary" type="button"></button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Link to javascript -->
+    <script rel="javascript" src="./javascript/script.js"></script>
+</body>
