@@ -16,14 +16,14 @@
 <body>
     <!-- High Score Button and Timer -->
     <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h5 class="text-center">High Scores</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <a class="stretched-link">High Scores</a>
+            </div>
+            <div class="col-md-6">
+                <h5 id="score" class="text-center"></h5>
+            </div>
         </div>
-        <div class="col-md-6">   
-            <h5 class="text-center">Timer Placeholder</h5>
-        </div>
-    </div>
     </div>
     <!-- Card for quiz content -->
     <div id="quiz-intro" class="row">
@@ -47,11 +47,46 @@
                 <div class="card-body">
                     <h4 id="question" class="card-title"></h4>
                     <div class="d-grid gap-2 col-4 mx-auto">
-                        <button onclick="checkQuestion('1')" id="answer1" class="btn btn-primary" type="button"></button>
-                        <button onclick="checkQuestion('2')" id="answer2" class="btn btn-primary" type="button"></button>
-                        <button onclick="checkQuestion('3')" id="answer3" class="btn btn-primary" type="button"></button>
-                        <button onclick="checkQuestion('4')" id="answer4" class="btn btn-primary" type="button"></button>
-                      </div>
+                        <button onclick="checkQuestion('1')" id="answer1" class="btn btn-primary"
+                            type="button"></button>
+                        <button onclick="checkQuestion('2')" id="answer2" class="btn btn-primary"
+                            type="button"></button>
+                        <button onclick="checkQuestion('3')" id="answer3" class="btn btn-primary"
+                            type="button"></button>
+                        <button onclick="checkQuestion('4')" id="answer4" class="btn btn-primary"
+                            type="button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Quiz Page -->
+    <div id="quiz-end" class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="card-title">Finished!</h1>
+                    <p id="your-score" class="card-text"></p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Your Score" aria-label="Your Score"
+                            aria-describedby="button-addon2">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- High Score Page -->
+    <div id="high-score" class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="card-title">High Scores</h1>
+                    <p class="card-text"> 
+                        <!-- High Scores go heree -->
+                    </p>
+                    <button class="button btn-primary">Go Back</button>
+                    <button class="button btn-primary">Clear High Scores</button>
                 </div>
             </div>
         </div>

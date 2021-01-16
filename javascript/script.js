@@ -43,10 +43,13 @@ const questions = [
 
 let lastQuestionIndex = questions.length - 1;
 let currentQuestionIndex = 0;
+let score = 75;
+let timer;
 
 function startQuiz() {
     document.getElementById("quiz-intro").style.display = 'none';
     document.getElementById("quiz-questions").style.display = 'inline';
+    startTimer();
     renderQuestion();
 }
 
@@ -63,10 +66,31 @@ function checkQuestion(answer) {
     if (questions[currentQuestionIndex].correct === answer) {
         currentQuestionIndex++;
     } else {
+        score = score - 15;
         currentQuestionIndex++;
     }
-renderQuestion();
-    // on click, check if question is correct
-    // if correct currentquestionIndex++
-    // else subtract 15 from timer and currentquestionIndex++
+    if (currentQuestionIndex > lastQuestionIndex) {
+        endGame();
+    } else {
+        renderQuestion();
+    }
+}
+
+function startTimer() {
+        score = 75;
+        timer = setInterval(function(){
+            document.getElementById("score").innerHTML='Score:'+score;
+            score--;
+            if (score <= 0) {
+                endGame();
+            }
+        }, 1000);
+}
+
+function endGame() {
+        clearInterval(timer);
+        document.getElementById("score").innerHTML='Score:'+score;
+        document.getElementById("quiz-end").style.display = 'inline';
+        document.getElementById("quiz-questions").style.display = 'none';
+        document.getElementById("your-score").innerHTML = 'Your Score: '+score;
 }

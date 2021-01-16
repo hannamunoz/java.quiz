@@ -1,3 +1,11 @@
 div#quiz-questions {
     display: none;
 }
+
+div#quiz-end {
+    display: none;
+}
+
+div#high-score {
+    display: none;
+}
