@@ -46,6 +46,7 @@ let currentQuestionIndex = 0;
 let score = 75;
 let timer;
 
+
 function startQuiz() {
     document.getElementById("quiz-intro").style.display = 'none';
     document.getElementById("quiz-questions").style.display = 'inline';
@@ -93,4 +94,25 @@ function endGame() {
         document.getElementById("quiz-end").style.display = 'inline';
         document.getElementById("quiz-questions").style.display = 'none';
         document.getElementById("your-score").innerHTML = 'Your Score: '+score;
+}
+
+function submitScore() {
+    document.getElementById("quiz-end").style.display = 'none';
+    document.getElementById("highscore").style.display = 'inline';
+    let highScores = localStorage.getItem("initials", highScores);
+    let initials = document.getElementById("initials").value;
+    if (highScores === null) {
+        highScores = [
+            {
+                initials: initials,
+                score: score
+            }
+        ]
+    } else {
+        highScores.push({
+            initials: initials,
+            score: score
+        })
+    }
+    localStorage.setItem("initials", highScores);
 }

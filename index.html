@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <a class="stretched-link">High Scores</a>
+                <a class="link">View Highscores</a>
             </div>
             <div class="col-md-6">
                 <h5 id="score" class="text-center"></h5>
@@ -68,25 +68,25 @@
                     <h1 class="card-title">Finished!</h1>
                     <p id="your-score" class="card-text"></p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Your Score" aria-label="Your Score"
+                        <input id="initials" type="text" class="form-control" placeholder="Enter Your Initials" aria-label="Enter Your Initials"
                             aria-describedby="button-addon2">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Submit</button>
+                        <button onclick="submitScore()" class="btn btn-outline-primary" type="button" id="submit-button">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- High Score Page -->
-    <div id="high-score" class="row">
+    <!-- Highscore Page -->
+    <div id="highscore" class="row">
         <div class="col-md-8 mx-auto">
             <div class="card text-center">
                 <div class="card-body">
                     <h1 class="card-title">High Scores</h1>
                     <p class="card-text"> 
-                        <!-- High Scores go heree -->
+                        <!-- Highscores go heree -->
                     </p>
                     <button class="button btn-primary">Go Back</button>
-                    <button class="button btn-primary">Clear High Scores</button>
+                    <button class="button btn-primary">Clear Highscores</button>
                 </div>
             </div>
         </div>
