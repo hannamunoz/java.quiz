@@ -1,5 +1,3 @@
-// Add .ready function!!
-
 const questions = [
     {
         question: "What is the HTML tag in which Javascript code can be written under?",
