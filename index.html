@@ -18,10 +18,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <a class="link">View Highscores</a>
+                <a onclick="viewScores()" id="view-scores" class="link">View Highscores</a>
             </div>
             <div class="col-md-6">
-                <h5 id="score" class="text-center"></h5>
+                <h5 id="score" class="float-end"></h5>
             </div>
         </div>
     </div>
@@ -81,12 +81,10 @@
         <div class="col-md-8 mx-auto">
             <div class="card text-center">
                 <div class="card-body">
-                    <h1 class="card-title">High Scores</h1>
-                    <p class="card-text"> 
-                        <!-- Highscores go heree -->
-                    </p>
-                    <button class="button btn-primary">Go Back</button>
-                    <button class="button btn-primary">Clear Highscores</button>
+                    <h1 class="card-title">Highscores</h1>
+                    <div id="display-score"></div>
+                    <button onclick="goBack()" class="button btn-primary">Go Back</button>
+                    <button onclick="clearScores()" class="button btn-primary">Clear Highscores</button>
                 </div>
             </div>
         </div>

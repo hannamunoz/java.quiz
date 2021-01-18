@@ -1,3 +1,5 @@
+// Add .ready function!!
+
 const questions = [
     {
         question: "What is the HTML tag in which Javascript code can be written under?",
@@ -48,9 +50,11 @@ let timer;
 
 
 function startQuiz() {
+    currentQuestionIndex = 0;
     document.getElementById("quiz-intro").style.display = 'none';
     document.getElementById("quiz-questions").style.display = 'inline';
     startTimer();
+    document.getElementById("score").style.display = 'block';
     renderQuestion();
 }
 
@@ -78,41 +82,81 @@ function checkQuestion(answer) {
 }
 
 function startTimer() {
-        score = 75;
-        timer = setInterval(function(){
-            document.getElementById("score").innerHTML='Score:'+score;
-            score--;
-            if (score <= 0) {
-                endGame();
-            }
-        }, 1000);
+    score = 75;
+    timer = setInterval(function () {
+        document.getElementById("score").innerHTML = 'Time:' + score;
+        score--;
+        if (score <= 0) {
+            endGame();
+        }
+    }, 1000);
 }
 
 function endGame() {
-        clearInterval(timer);
-        document.getElementById("score").innerHTML='Score:'+score;
-        document.getElementById("quiz-end").style.display = 'inline';
-        document.getElementById("quiz-questions").style.display = 'none';
-        document.getElementById("your-score").innerHTML = 'Your Score: '+score;
+    clearInterval(timer);
+    document.getElementById("score").innerHTML = 'Time:' + score;
+    document.getElementById("quiz-end").style.display = 'inline';
+    document.getElementById("quiz-questions").style.display = 'none';
+    document.getElementById("your-score").innerHTML = 'Your Score: ' + score;
 }
 
 function submitScore() {
     document.getElementById("quiz-end").style.display = 'none';
     document.getElementById("highscore").style.display = 'inline';
-    let highScores = localStorage.getItem("initials", highScores);
+    document.getElementById("score").style.display = 'none';
+    let highScores = localStorage.getItem("initials");
     let initials = document.getElementById("initials").value;
     if (highScores === null) {
-        highScores = [
+        highScores = JSON.stringify([
             {
                 initials: initials,
                 score: score
             }
-        ]
+        ]);
     } else {
-        highScores.push({
+        let highScoresParsed = JSON.parse(highScores);
+        highScoresParsed.push({
             initials: initials,
             score: score
-        })
+        });
+        highScores = JSON.stringify(highScoresParsed);
     }
     localStorage.setItem("initials", highScores);
+    renderScores();
+    document.getElementById("initials").value = "";
+}
+
+function renderScores() {
+    document.getElementById("display-score").innerHTML = "";
+    let parsedScores = JSON.parse(localStorage.getItem("initials"));
+    if (parsedScores === null) {
+        document.getElementById("display-score").innerHTML = "";
+    } else {
+        parsedScores.sort((a, b) => {
+            return b.score - a.score;
+        });
+        parsedScores.forEach((score, index) => {
+            document.getElementById("display-score").innerHTML += index + 1 + ": " + score.initials + " " + score.score + "<br />";
+        });
+    }
+}
+
+function clearScores() {
+    localStorage.clear();
+    renderScores();
+}
+
+function goBack() {
+    document.getElementById("highscore").style.display = 'none';
+    document.getElementById("quiz-intro").style.display = 'inline';
+}
+
+function viewScores() {
+    clearInterval(timer);
+    document.getElementById("quiz-intro").style.display = 'none';
+    document.getElementById("quiz-questions").style.display = 'none';
+    document.getElementById("quiz-end").style.display = 'none';
+    document.getElementById("score").style.display = 'none';
+    document.getElementById("highscore").style.display = 'inline';
+    renderScores();
 }
