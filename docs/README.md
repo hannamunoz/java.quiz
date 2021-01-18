@@ -1,7 +1,7 @@
 ![Code Quiz](./screenshot.png)
 
 # Code Quiz:
-Practice your coding knowloedge with this coding quiz. Log your high score to see who can do the best.
+Practice your coding knowledge with this coding quiz. Log your high score to see who can do the best.
 
 # How to Use:
 Hit the start button to begin the quiz. Select your answers as you go. If you get the right answer, you'll move
